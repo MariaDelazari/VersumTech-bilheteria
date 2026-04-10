@@ -1,12 +1,12 @@
 import React, {Component} from "react";
-import {View, Text, KeyboardAvoidingView, Platform } from "react-native";
-import { Input } from "./src/components/Input";
+import {View, Text } from "react-native";
+import { Login } from "./src/pages/Login";
 
 export default function App (){
   return(
-    <View>
+    <View style={{ flex: 1 }}>
 
-      <Text>BORA FAZER O TRABALHO!!!</Text>
+      <Login  />
       
     </View>
   );
