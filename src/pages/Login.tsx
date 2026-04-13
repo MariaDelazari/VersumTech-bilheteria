@@ -10,7 +10,6 @@ export function Login() {
   return (
     <View style={styles.container}>
       
-      {/* 🎥 VÍDEO DE FUNDO */}
       <Video
         source={require("../../assets/video/background-login.mp4")}
         style={StyleSheet.absoluteFill}
@@ -20,7 +19,7 @@ export function Login() {
         isMuted
       />
 
-      {/* 🔮 FORMULÁRIO */}
+
       <View style={styles.form}>
         <Text style={styles.logo}>SHRUHH</Text>
         <Text style={styles.title}>Welcome Back</Text>
@@ -70,10 +69,9 @@ const styles = StyleSheet.create({
 
     borderRadius: 20,
 
-    // 🔮 glass effect
     backgroundColor: "rgba(255,255,255,0.08)",
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.2)",
+    borderColor: "rgba(255, 255, 255, 0.40)",
   },
 
   logo: {

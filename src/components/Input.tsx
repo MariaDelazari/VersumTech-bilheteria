@@ -34,12 +34,12 @@ const styles = StyleSheet.create({
     height: 45,
     width: "100%",
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.3)",
+    borderColor: "rgba(255, 255, 255, 0.57)",
     borderRadius: 10,
     paddingHorizontal: 10,
     color: "#fff",
 
-    // 🔮 efeito transparente
+  
     backgroundColor: "rgba(255,255,255,0.05)",
   },
 });
