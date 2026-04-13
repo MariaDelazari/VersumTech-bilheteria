@@ -76,10 +76,11 @@ const styles = StyleSheet.create({
     marginVertical: 38,
     position: "absolute",
     top: "15%",
+    bottom: "16%",
     alignSelf: "center",
 
-    width: "88%",
-    padding: 20,
+    width: "90%",
+    padding: 26,
 
     borderRadius: 20,
 
@@ -98,51 +99,41 @@ const styles = StyleSheet.create({
 
   logo: {
    marginRight: 10,
-    width:210,
-    height: 80,
+    width:215,
+    height: 95,
   },
   
 
-  title: {
-    fontSize: 18,
-    textDecorationLine: 'underline',
-    color: "#FFFFFF",
-    textAlign: "center",
-    marginBottom: 25,
-    fontWeight: 300,
-  
-  },
+title: {
+  fontSize: 20
+,
+  color: "#FFFFFF",
+  textAlign: "center",
+  marginBottom: 6,
+  fontWeight: "600",
+  letterSpacing: 1
+},
 
   forgot: {
     color: "#ccc",
-    marginTop: 10,
-    marginBottom: 20,
+    marginBottom: 22,
+    marginTop: 11,
     fontSize: 13,
   },
 
-  button: {
-    backgroundColor: "rgba(255,255,255,0.2)",
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
-  },
-
-  buttonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-
+ 
   signup: {
     color: "#ccc",
     textAlign: "center",
     marginTop: 20,
+    fontSize: 14,
   },
 
   link: {
     color: "#fff",
     fontWeight: "600",
     textDecorationLine: 'underline',
+    fontSize: 14,
     
   },
 });

@@ -1,7 +1,12 @@
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { TouchableOpacityProps } from "react-native";
 
-export function Button({ title, ...rest }) {
+interface ButtonProps extends TouchableOpacityProps {
+  title: string;
+}
+
+export function Button({ title, ...rest }:ButtonProps) {
   return (
     <TouchableOpacity activeOpacity={0.75} {...rest}>
       

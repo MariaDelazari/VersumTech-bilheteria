@@ -22,12 +22,13 @@ export function Input({ title, value, ...rest }: InputProps) {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 15,
+    
   },
 
   label: {
     color: "#CCCCCC",
     marginBottom: 6,
+    marginTop: 15,
   },
 
   input: {
