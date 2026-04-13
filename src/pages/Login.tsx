@@ -52,7 +52,7 @@ export function Login() {
 
         <Button
            title="Entrar"
-           onPress={() => console.log("Login clicado")}
+          onPress={() => navigation.navigate("Listing")}
           />
 
         <Text style={styles.signup}>
