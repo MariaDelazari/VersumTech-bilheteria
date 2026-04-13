@@ -1,7 +1,8 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { Video, ResizeMode } from "expo-av";
 import { useState } from "react";
 import { Input } from "../components/Input";
+import { Button } from "../components/Button";
 
 export function Login() {
   const [email, setEmail] = useState("");
@@ -21,32 +22,41 @@ export function Login() {
 
 
       <View style={styles.form}>
-        <Text style={styles.logo}>SHRUHH</Text>
-        <Text style={styles.title}>Welcome Back</Text>
+         <View style={styles.logoContainer}>
+            <Image style={styles.logo}
+              source={require('../../assets/image/logoVersumTech.png')}
+            
+            />
+
+            
+         </View>
+    
+        <Text style={styles.title}>Bem vindo de volta!</Text>
 
         <Input
-          title="Email address"
+          title="Email "
           value={email}
           onChangeText={setEmail}
           placeholder="Digite seu email"
         />
 
         <Input
-          title="Password"
+          title="Senha"
           value={senha}
           onChangeText={setSenha}
           placeholder="Digite sua senha"
           secureTextEntry
         />
 
-        <Text style={styles.forgot}>Forget Password?</Text>
+        <Text style={styles.forgot}>Esqueçeu a senha ?</Text>
 
-        <View style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
-        </View>
+        <Button
+           title="Entrar"
+           onPress={() => console.log("Login clicado")}
+          />
 
         <Text style={styles.signup}>
-          Are you new? <Text style={styles.link}>Sign Up</Text>
+          Não tem conta? <Text style={styles.link}>Cadastre-se</Text>
         </Text>
       </View>
 
@@ -57,14 +67,18 @@ export function Login() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    
   },
 
   form: {
+    marginVertical: 38,
     position: "absolute",
-    top: "20%",
+    top: "15%",
     alignSelf: "center",
 
-    width: "85%",
+    width: "88%",
     padding: 20,
 
     borderRadius: 20,
@@ -72,20 +86,31 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.08)",
     borderWidth: 1,
     borderColor: "rgba(255, 255, 255, 0.40)",
+
+    
   },
+
+  logoContainer: {
+  alignItems: "center",
+
+  },
+
 
   logo: {
-    color: "#aaa",
-    textAlign: "center",
-    marginBottom: 10,
-    letterSpacing: 2,
+   marginRight: 10,
+    width:210,
+    height: 80,
   },
+  
 
   title: {
-    fontSize: 22,
-    color: "#fff",
+    fontSize: 18,
+    textDecorationLine: 'underline',
+    color: "#FFFFFF",
     textAlign: "center",
-    marginBottom: 20,
+    marginBottom: 25,
+    fontWeight: 300,
+  
   },
 
   forgot: {
@@ -116,6 +141,8 @@ const styles = StyleSheet.create({
 
   link: {
     color: "#fff",
-    fontWeight: "bold",
+    fontWeight: "600",
+    textDecorationLine: 'underline',
+    
   },
 });

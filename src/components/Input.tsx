@@ -13,7 +13,7 @@ export function Input({ title, value, ...rest }: InputProps) {
       <TextInput
         style={styles.input}
         value={value}
-        placeholderTextColor="#aaa"
+        placeholderTextColor="#AAAAAA"
         {...rest}
       />
     </View>
@@ -26,15 +26,15 @@ const styles = StyleSheet.create({
   },
 
   label: {
-    color: "#ccc",
-    marginBottom: 5,
+    color: "#CCCCCC",
+    marginBottom: 6,
   },
 
   input: {
     height: 45,
     width: "100%",
     borderWidth: 1,
-    borderColor: "rgba(255, 255, 255, 0.57)",
+   borderColor: "rgba(255,255,255,0.8)",
     borderRadius: 10,
     paddingHorizontal: 10,
     color: "#fff",
