@@ -16,9 +16,9 @@ export function Card() {
 
     
         <View>
-          <Text style={styles.title}>Wine Tasting</Text>
-          <Text style={styles.info}>Fri, June 8</Text>
-          <Text style={styles.info}>07: PM</Text>
+          <Text style={styles.title}>Evento VersumTech</Text>
+          <Text style={styles.description}>Data</Text>
+          <Text style={styles.description}>Hora</Text>
         </View>
 
       </View>
