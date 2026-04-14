@@ -52,7 +52,12 @@ export function Login() {
 
         <Button
            title="Entrar"
-          onPress={() => alert("aaaa")}
+          onPress={() => {
+            if (!email || !senha) {
+              alert("Preencha todos os campos");
+              return;
+            }
+          }}
           />
 
         <Text style={styles.signup}>
