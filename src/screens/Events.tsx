@@ -9,10 +9,11 @@ export function Events() {
 
       <View style={styles.header}> 
 
-          <Text style={styles.pageTitle}>Meus Ingressos</Text>
+          <Text style={styles.pageTitle}>Eventos</Text>
 
           <View style={styles.navigationContainer}>
             <Text style={styles.navigation}>
+            
               Está por vir
             </Text>
 
