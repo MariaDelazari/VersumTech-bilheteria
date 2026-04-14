@@ -52,7 +52,7 @@ export function Login() {
 
         <Button
            title="Entrar"
-          onPress={() => navigation.navigate("Listing")}
+          onPress={() => alert("aaaa")}
           />
 
         <Text style={styles.signup}>
