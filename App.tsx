@@ -1,14 +1,16 @@
 import React, {Component} from "react";
-import {View, Text } from "react-native";
+import {View } from "react-native";
+
 import { Login } from "./src/screens/Login";
+import { Events } from "./src/screens/Events";
 
-export default function App (){
+export default   function App (){
   return(
-    <View style={{ flex: 1 }}>
+<View style={{ flex: 1 }} > 
 
-      <Login  />
-      
-    </View>
+ 
+  <Events />
+</View>
   );
 }
 

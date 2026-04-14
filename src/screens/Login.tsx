@@ -5,7 +5,7 @@ import { Input } from "../components/Input";
 import { Button } from "../components/Button";
 
 export function Login() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(""); // estado para armazenar o email digitado que é atualizado toda vez que o usuário digita algo no campo de email
   const [senha, setSenha] = useState("");
 
   return (
@@ -13,8 +13,8 @@ export function Login() {
       
       <Video
         source={require("../../assets/video/background-login.mp4")}
-        style={StyleSheet.absoluteFill}
-        resizeMode={ResizeMode.COVER}
+        style={StyleSheet.absoluteFill} // faz o vídeo ocupar toda a tela
+        resizeMode={ResizeMode.COVER} // “preencha toda a área, mesmo que corte partes do vídeo”
         shouldPlay
         isLooping
         isMuted
@@ -35,8 +35,8 @@ export function Login() {
 
         <Input
           title="Email "
-          value={email}
-          onChangeText={setEmail}
+          value={email}  // valor do campo de email que é atualizado toda vez que o usuário digita algo no campo de email, e é passado para o componente Input para que ele possa exibir o valor atualizado
+          onChangeText={setEmail} // função que é chamada toda vez que o usuário digita algo no campo de email, e é passada para o componente Input para que ele possa atualizar o estado do email com o valor digitado pelo usuário
           placeholder="Digite seu email"
         />
 
@@ -45,15 +45,15 @@ export function Login() {
           value={senha}
           onChangeText={setSenha}
           placeholder="Digite sua senha"
-          secureTextEntry
+          secureTextEntry //esconde a senha digitada
         />
 
         <Text style={styles.forgot}>Esqueçeu a senha ?</Text>
 
         <Button
            title="Entrar"
-          onPress={() => {
-            if (!email || !senha) {
+          onPress={() => { // função que é chamada quando o usuário pressiona o botão de entrar
+            if (!email || !senha) {// verifica se o email ou a senha estão vazios, e se estiverem, exibe um alerta para o usuário preencher todos os campos
               alert("Preencha todos os campos");
               return;
             }
@@ -71,7 +71,7 @@ export function Login() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1, // faz o container ocupar toda a tela, ta dizendo: “ocupe todo o espaço disponível do container”
     justifyContent: "center",
     alignItems: "center",
     
