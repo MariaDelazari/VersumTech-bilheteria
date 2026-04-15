@@ -127,9 +127,10 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 14,
-    fontWeight: "800",
-    color: "#111827",
+    fontWeight: "700",
+    color: "#0f1523",
     marginBottom: 4,
+    marginTop: 2,
   },
 
   subtitle: {
@@ -222,8 +223,8 @@ const styles = StyleSheet.create({
 
   codeValue: {
     fontSize: 13,
-    fontWeight: "800",
-    color: "#111827",
+    fontWeight: "700",
+    color: "#0f1523",
     letterSpacing: 0.6,
   },
 

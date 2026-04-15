@@ -1,20 +1,7 @@
+import "react-native-gesture-handler";
 import React from "react";
-import { View } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-
-import Profile from "./src/screens/Profile";
-import { Events } from "./src/screens/Events";
-import { Login } from "./src/screens/Login";
-
+import AppRoutes from "./src/routes/AppRoutes";
 
 export default function App() {
-  return (
-    <SafeAreaProvider>
-      <View style={{ flex: 1 }}>
-        <Events />
-        
-      </View>
-    </SafeAreaProvider>
-  );
+  return <AppRoutes />;
 }
-
