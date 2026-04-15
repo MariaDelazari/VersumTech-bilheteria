@@ -94,6 +94,7 @@ export  function Events({
             location={item.location}
             code={item.code}
             image={item.image}
+            tem={true}
             onPress={() => navigation.navigate("Event", { event: item })}
           />
           

@@ -23,18 +23,17 @@ export default function Cart({ navigation }: any) {
     total += item.price ?? 0;
   });
 
-  function handleCheckout() {
-    if (items.length === 0) return;
+function handleCheckout() {
+  if (items.length === 0) return;
 
-    items.forEach((item) => addItemCard(item));
+  setSuccess(true);
 
-    setSuccess(true);
-    clear();
+  clear(); 
 
-    setTimeout(() => {
-      setSuccess(false);
-    }, 2500);
-  }
+  setTimeout(() => {
+    setSuccess(false);
+  }, 2500);
+}
 
   return (
     <SafeAreaView style={styles.container}>

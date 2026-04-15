@@ -80,7 +80,6 @@ export  function Ticket({
             location={item.location}
             code={item.code}
             image={item.image}
-            onPress={() => navigation.navigate("Event")}
           />
           
         </View>
