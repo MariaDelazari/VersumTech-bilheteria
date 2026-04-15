@@ -8,6 +8,7 @@ type CardProps = {
   location: string;
   code: string;
   image: string;
+  onPress: () => void;
 };
 
 export function Card({
@@ -17,6 +18,8 @@ export function Card({
   location,
   code,
   image,
+  onPress,
+  
 }: CardProps) {
   return (
     <View style={styles.container}>
@@ -65,7 +68,7 @@ export function Card({
 
           <Button
             title="Acessar Evento"
-            onPress={() => console.log(`Abrir ${title}`)}
+            onPress={onPress}
             style={styles.button}
             textStyle={{ fontSize: 12 }}
           />
