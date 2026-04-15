@@ -1,42 +1,55 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, Image, Alert } from "react-native";
 import { Video, ResizeMode } from "expo-av";
-import { useState } from "react";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
+import { RootStackParamList } from "../routes/AppRoutes";
 
-export function Login() {
-  const [email, setEmail] = useState(""); // estado para armazenar o email digitado que é atualizado toda vez que o usuário digita algo no campo de email
+type Props = NativeStackScreenProps<RootStackParamList, "Login">;
+
+export function Login({ navigation }: Props) {
+  const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+
+  function handleLogin() {
+    if (!email || !senha) {
+      Alert.alert("Atenção", "Preencha todos os campos");
+      return;
+    }
+
+    navigation.navigate("Events");
+  }
 
   return (
     <View style={styles.container}>
-      
       <Video
         source={require("../../assets/video/background-login.mp4")}
-        style={StyleSheet.absoluteFill} // faz o vídeo ocupar toda a tela
-        resizeMode={ResizeMode.COVER} // “preencha toda a área, mesmo que corte partes do vídeo”
+        style={StyleSheet.absoluteFill}
+        resizeMode={ResizeMode.COVER}
         shouldPlay
         isLooping
         isMuted
       />
 
+      <View style={styles.overlay} />
 
       <View style={styles.form}>
-         <View style={styles.logoContainer}>
-            <Image style={styles.logo}
-              source={require('../../assets/image/logoVersumTech.png')}
-            
-            />
+        <View style={styles.logoContainer}>
+          <Image
+            style={styles.logo}
+            source={require("../../assets/image/logoVersumTech.png")}
+            resizeMode="contain"
+          />
+        </View>
 
-            
-         </View>
-    
-        <Text style={styles.title}>Bem vindo de volta!</Text>
+        <Text style={styles.title}>Bem-vindo de volta!</Text>
 
         <Input
-          title="Email "
-          value={email}  // valor do campo de email que é atualizado toda vez que o usuário digita algo no campo de email, e é passado para o componente Input para que ele possa exibir o valor atualizado
-          onChangeText={setEmail} // função que é chamada toda vez que o usuário digita algo no campo de email, e é passada para o componente Input para que ele possa atualizar o estado do email com o valor digitado pelo usuário
+          title="Email"
+          value={email}
+          onChangeText={setEmail}
           placeholder="Digite seu email"
         />
 
@@ -45,71 +58,61 @@ export function Login() {
           value={senha}
           onChangeText={setSenha}
           placeholder="Digite sua senha"
-          secureTextEntry //esconde a senha digitada
+          secureTextEntry
         />
 
-        <Text style={styles.forgot}>Esqueçeu a senha ?</Text>
+        <Text style={styles.forgot}>Esqueceu a senha?</Text>
 
-        <Button
-           title="Entrar"
-          onPress={() => { 
-            if (!email || !senha) {
-              alert("Preencha todos os campos");
-              return;
-            }
-          }}
-          />
+        <Button title="Entrar" onPress={handleLogin} />
 
         <Text style={styles.signup}>
           Não tem conta? <Text style={styles.link}>Cadastre-se</Text>
         </Text>
       </View>
-
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    
+  },
+
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(0,0,0,0.25)",
   },
 
   form: {
     width: "90%",
     padding: 24,
     borderRadius: 24,
-
     backgroundColor: "rgba(255,255,255,0.10)",
     borderWidth: 1,
     borderColor: "rgba(255,255,255,0.25)",
-
-    
   },
 
   logoContainer: {
-  alignItems: "center",
-  marginBottom: 5,
-
+    alignItems: "center",
+    marginBottom: 5,
   },
 
   logo: {
-   marginRight: 10,
-    width:210,
+    width: 210,
     height: 95,
+    marginRight: 10,
   },
-  
 
-title: {
-  fontSize: 22,
-  color: "#FFF",
-  textAlign: "center",
-  marginBottom: 15,
-  fontWeight: "700",
-  letterSpacing: 0.5,
-},
+  title: {
+    fontSize: 22,
+    color: "#FFF",
+    textAlign: "center",
+    marginBottom: 15,
+    fontWeight: "700",
+    letterSpacing: 0.5,
+  },
 
   forgot: {
     color: "#fff",
@@ -121,7 +124,6 @@ title: {
     fontWeight: "600",
   },
 
- 
   signup: {
     color: "rgba(255,255,255,0.7)",
     textAlign: "center",
@@ -133,6 +135,5 @@ title: {
     color: "#fff",
     fontWeight: "700",
     textDecorationLine: "underline",
-    
   },
 });
