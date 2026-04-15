@@ -56,7 +56,8 @@ export function Login({ navigation }: any) {
 
         <Text style={styles.forgot}>Esqueceu a senha?</Text>
 
-        <Button title="Entrar" onPress={() => navigation.navigate("Events")} />
+        <Button title="Entrar" 
+        onPress={() => navigation.navigate("Events")} />
 
         <Text style={styles.signup}>
           Não tem conta? <Text style={styles.link}>Cadastre-se</Text>
