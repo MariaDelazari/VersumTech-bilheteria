@@ -20,7 +20,7 @@ export function Menu() {
 
       <Ionicons
         name="ticket-outline"
-        onPress={() => navigation.navigate("Events")}
+        onPress={() => navigation.navigate("Ticket")}
         size={24}
         color="#888"
       />

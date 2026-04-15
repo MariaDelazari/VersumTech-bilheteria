@@ -3,16 +3,19 @@ import type { EventItem } from "../data/events";
 
 type CartContextValue = {
   items: EventItem[];
+  itemsCart: EventItem[];
   addItem: (event: EventItem) => void;
   removeItem: (id: string) => void;
   clear: () => void;
   hasItem: (id: string) => boolean;
+  addItemCard: (event: EventItem) => void;
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<EventItem[]>([]);
+  const [itemsCart, setItemsCart] = useState<EventItem[]>([]);
 
   function addItem(event: EventItem) {
     setItems((prev) => {
@@ -20,7 +23,18 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       if (exists) return prev;
       return [...prev, event];
     });
+    setItemsCart((prev) => [...prev, event]);
   }
+
+  function addItemCard(event: EventItem) {
+    setItemsCart((prev) => {
+      const exists = prev.find((i) => i.id === event.id);
+      if (exists) return prev;
+      return [...prev, event];
+    });
+    setItemsCart((prev) => [...prev, event]);
+  }
+    
 
   function removeItem(id: string) {
     setItems((prev) => prev.filter((i) => i.id !== id));
@@ -35,7 +49,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <CartContext.Provider value={{ items, addItem, removeItem, clear, hasItem }}>
+    <CartContext.Provider value={{ items, addItem, removeItem, clear, hasItem, addItemCard, itemsCart }}>
       {children}
     </CartContext.Provider>
   );

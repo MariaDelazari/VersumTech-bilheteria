@@ -1,0 +1,193 @@
+import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+
+  FlatList,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
+import { Card } from "../components/Card";
+import { events } from "../data/events";
+import { ScrollView } from "react-native-gesture-handler";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Menu } from "../components/Menu";
+import { useCart } from "../contexts/CartContext";
+
+
+export  function Ticket({
+  navigation,
+}: any) {
+
+  const { itemsCart } = useCart();
+  return ( 
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#f2f4f8" }}>
+    <ScrollView  showsVerticalScrollIndicator={false}>
+    <FlatList 
+      data={itemsCart}
+      keyExtractor={(item) => item.id}
+      ListHeaderComponent={ 
+        <View style={styles.wrapper}>
+
+          <ImageBackground
+            source={{
+              uri: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678",
+            }}
+            style={styles.container}
+            imageStyle={styles.backgroundImage}
+            resizeMode="cover"
+          >
+            <LinearGradient
+              colors={["rgba(0,0,0,0.15)", "rgba(0,0,0,0.55)"]}
+              style={styles.overlay}
+            >
+              <View style={styles.topRow}>
+                <TouchableOpacity
+                  style={styles.iconButton}
+                  activeOpacity={0.8}
+                  onPress={() => navigation.navigate("Profile")}
+                >
+                  <Ionicons name="menu" size={24} color="#fff" />
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={styles.iconButton}
+                  activeOpacity={0.8}
+                >
+                  <Ionicons name="search" size={22} color="#fff" />
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.content}>
+                <Text style={styles.title}>Meus Ingressos</Text>
+              </View>
+            </LinearGradient>
+          </ImageBackground>
+
+             
+        </View>
+            
+      }
+      renderItem={({ item }) => (
+        <View style={styles.cardContainer}>
+          <Card
+            title={item.title}
+            date={item.date}
+            time={item.time}
+            location={item.location}
+            code={item.code}
+            image={item.image}
+            onPress={() => navigation.navigate("Event")}
+          />
+          
+        </View>
+        
+      )}
+    />
+      </ScrollView>
+       <Menu />
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+
+  wrapper: {
+    backgroundColor: "#F3F4F6",
+    marginBottom: 20,
+  },
+  container: {
+    height: 240,
+    justifyContent: "space-between",
+  },
+  backgroundImage: {
+    borderBottomLeftRadius: 12,
+    borderBottomRightRadius: 12,
+  },
+  overlay: {
+    flex: 1,
+    paddingTop: 50,
+    paddingHorizontal: 25,
+    paddingBottom: 24,
+    justifyContent: "space-between",
+    borderBottomLeftRadius: 12,
+    borderBottomRightRadius: 12,
+  },
+  topRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  iconButton: {
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    backgroundColor: "rgba(255,255,255,0.18)",
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.22)",
+  },
+  content: {
+    gap: 8,
+  },
+  title: {
+    color: "#fff",
+    fontSize: 38,
+    fontWeight: "700",
+    letterSpacing: 0.4,
+    marginBottom: 28,
+    marginLeft: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+
+    
+  },
+  floatingCard: {
+    marginTop: -28,
+    marginHorizontal: 20,
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 18,
+    paddingLeft: 38,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 6,
+  },
+  infoItem: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  infoTitle: {
+    fontSize: 14,
+    fontWeight: "700",
+    color: "#1F2937",
+    marginBottom: 2,
+  },
+  infoSubtitle: {
+    fontSize: 12,
+    color: "#6B7280",
+    marginTop: 2,
+  },
+  divider: {
+    width: 1,
+    height: 40,
+    backgroundColor: "#E5E7EB",
+    marginHorizontal: 14,
+  },
+  cardContainer: {
+    paddingHorizontal: 15,
+    marginBottom: 4,
+  },
+});

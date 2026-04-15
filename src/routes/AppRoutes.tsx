@@ -7,6 +7,7 @@ import Event from "../screens/Event";
 import { Login } from "../screens/Login";
 import Profile from "../screens/Profile";
 import Cart from "../screens/Cart";
+import { Ticket } from "../screens/Ticket";
 
 export type RootStackParamList = {
   Login: undefined;
@@ -14,6 +15,7 @@ export type RootStackParamList = {
   Event: undefined;
   Cart: undefined;
   Profile: undefined;
+  Ticket: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -32,6 +34,7 @@ export default function AppRoutes() {
         <Stack.Screen name="Event" component={Event} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Cart" component={Cart} />
+        <Stack.Screen name="Ticket" component={Ticket} />
       </Stack.Navigator>
     </NavigationContainer>
   );

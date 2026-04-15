@@ -13,7 +13,8 @@ import { useCart } from "../contexts/CartContext";
 import { Menu } from "../components/Menu";
 
 export default function Cart({ navigation }: any) {
-  const { items, removeItem, clear } = useCart();
+  const { items, removeItem, clear, addItemCard } = useCart();
+  
 
   const [success, setSuccess] = useState(false);
 
@@ -24,6 +25,8 @@ export default function Cart({ navigation }: any) {
 
   function handleCheckout() {
     if (items.length === 0) return;
+
+    items.forEach((item) => addItemCard(item));
 
     setSuccess(true);
     clear();
