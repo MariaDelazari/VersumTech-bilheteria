@@ -7,34 +7,13 @@ import Event from "../screens/Event";
 import { Login } from "../screens/Login";
 import Profile  from "../screens/Profile";
 
-export type EventItem = {
-  id: string;
-  title: string;
-  date: string;
-  time: string;
-  location: string;
-  code: string;
-  image: string;
-  description: string;
-};
-
-export type RootStackParamList = {
-  Login: undefined;
-  Home: undefined;
-  Events: undefined;
-  Event: {
-    event: EventItem;
-  };
-  Profile: undefined;
-};
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator();
 
 export default function AppRoutes() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="Login" 
         screenOptions={{
           headerShown: false,
         }}

@@ -5,22 +5,14 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
-import { RootStackParamList } from "../routes/AppRoutes";
 
-type Props = NativeStackScreenProps<RootStackParamList, "Login">;
 
-export function Login({ navigation }: Props) {
+
+
+export function Login({ navigation }: any) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
-  function handleLogin() {
-    if (!email || !senha) {
-      Alert.alert("Atenção", "Preencha todos os campos");
-      return;
-    }
-
-    navigation.navigate("Events");
-  }
 
   return (
     <View style={styles.container}>
@@ -33,7 +25,7 @@ export function Login({ navigation }: Props) {
         isMuted
       />
 
-      <View style={styles.overlay} />
+      <View  />
 
       <View style={styles.form}>
         <View style={styles.logoContainer}>
@@ -41,6 +33,7 @@ export function Login({ navigation }: Props) {
             style={styles.logo}
             source={require("../../assets/image/logoVersumTech.png")}
             resizeMode="contain"
+            
           />
         </View>
 
@@ -63,7 +56,7 @@ export function Login({ navigation }: Props) {
 
         <Text style={styles.forgot}>Esqueceu a senha?</Text>
 
-        <Button title="Entrar" onPress={handleLogin} />
+        <Button title="Entrar" onPress={() => navigation.navigate("Events")} />
 
         <Text style={styles.signup}>
           Não tem conta? <Text style={styles.link}>Cadastre-se</Text>
@@ -80,10 +73,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
-  overlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(0,0,0,0.25)",
-  },
 
   form: {
     width: "90%",
@@ -92,21 +81,22 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.10)",
     borderWidth: 1,
     borderColor: "rgba(255,255,255,0.25)",
+    
   },
 
   logoContainer: {
     alignItems: "center",
-    marginBottom: 5,
   },
 
   logo: {
-    width: 210,
-    height: 95,
-    marginRight: 10,
+    width: 200,
+    height: 100,  
+    marginLeft: -10,
+    
   },
 
   title: {
-    fontSize: 22,
+    fontSize: 20,
     color: "#FFF",
     textAlign: "center",
     marginBottom: 15,

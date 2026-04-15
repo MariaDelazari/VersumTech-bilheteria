@@ -10,11 +10,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../routes/AppRoutes";
 
-type Props = NativeStackScreenProps<RootStackParamList, "Event">;
-
-export default function Event({ route, navigation }: Props) {
+export default function Event({ route, navigation }: any) {
   const { event } = route.params;
 
   return (
