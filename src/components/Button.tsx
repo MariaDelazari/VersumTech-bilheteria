@@ -1,51 +1,80 @@
-import { TouchableOpacity, Text, StyleSheet, ActivityIndicator } from "react-native";
-import { TouchableOpacityProps } from "react-native";
+import React from "react";
+import {
+  Pressable,
+  Text,
+  StyleSheet,
+  GestureResponderEvent,
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+} from "react-native";
 
-interface ButtonProps extends TouchableOpacityProps {
+type ButtonProps = {
   title: string;
-  loading?: boolean;
-}
+  onPress?: (event: GestureResponderEvent) => void;
+  disabled?: boolean;
+  style?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
+};
 
-export function Button({ title, loading = false, disabled, ...rest }: ButtonProps) {
+export function Button({
+  title,
+  onPress,
+  disabled = false,
+  style,
+  textStyle,
+}: ButtonProps) {
   return (
-    <TouchableOpacity
-      style={[
+    <Pressable
+      onPress={onPress}
+      disabled={disabled}
+      style={({ pressed }) => [
         styles.button,
-        disabled && styles.disabled
+        pressed && styles.buttonPressed,
+        disabled && styles.buttonDisabled,
+        style,
       ]}
-      activeOpacity={0.85}
-      disabled={disabled || loading}
-      {...rest}
     >
-      {loading ? (
-        <ActivityIndicator color="#FFF" />
-      ) : (
-        <Text style={styles.text}>{title}</Text>
-      )}
-    </TouchableOpacity>
+      <Text style={[styles.buttonText, disabled && styles.textDisabled, textStyle]}>
+        {title}
+      </Text>
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#4F46E5", 
-    width: "100%",
-    paddingVertical: 14,
+    backgroundColor: "#8A2BE2",
+    paddingVertical: 16,
+    paddingHorizontal: 20,
     borderRadius: 12,
     alignItems: "center",
     justifyContent: "center",
-
- 
+    shadowColor: "#8A2BE2",
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 3,
   },
 
-  text: {
-    color: "#FFF",
+  buttonPressed: {
+    opacity: 0.9,
+    transform: [{ scale: 0.98 }],
+  },
+
+  buttonDisabled: {
+    backgroundColor: "#C4B5FD",
+    shadowOpacity: 0,
+    elevation: 0,
+  },
+
+  buttonText: {
+    color: "#fff",
     fontSize: 16,
     fontWeight: "700",
-    letterSpacing: 0.9,
   },
 
-  disabled: {
-    opacity: 0.5,
+  textDisabled: {
+    color: "#F5F3FF",
   },
 });
