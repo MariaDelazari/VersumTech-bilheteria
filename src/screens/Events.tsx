@@ -12,12 +12,17 @@ import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Card } from "../components/Card";
 import { events } from "../data/events";
+import { ScrollView } from "react-native-gesture-handler";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Menu } from "../components/Menu";
 
 
 export  function Events({
   navigation,
 }: any) {
   return ( 
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#f2f4f8" }}>
+    <ScrollView  showsVerticalScrollIndicator={false}>
     <FlatList 
       data={events}
       keyExtractor={(item) => item.id}
@@ -91,9 +96,14 @@ export  function Events({
             image={item.image}
             onPress={() => navigation.navigate("Event", { event: item })}
           />
+          
         </View>
+        
       )}
     />
+      </ScrollView>
+       <Menu />
+    </SafeAreaView>
   );
 }
 

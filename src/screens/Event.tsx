@@ -10,17 +10,20 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useCart } from "../contexts/CartContext";
+import { Menu } from "../components/Menu";
+
+
 
 export default function Event({ route, navigation }: any) {
-  const { event } = route.params; // dados q vieram da outra tela
+  const { event } = route.params;
+  const { addItem, hasItem } = useCart();
+  const alreadyInCart = hasItem(event.id);
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Image
-          source={{ uri: event.image }}
-          style={styles.image}
-        />
+        <Image source={{ uri: event.image }} style={styles.image} />
 
         <View style={styles.content}>
           <Pressable
@@ -59,10 +62,19 @@ export default function Event({ route, navigation }: any) {
       </ScrollView>
 
       <View style={styles.footer}>
-        <Pressable style={styles.button}>
-          <Text style={styles.buttonText}>Participar</Text>
+        <Pressable
+          style={[styles.button, alreadyInCart && styles.buttonDisabled]}
+          onPress={() => {
+            addItem(event);
+            navigation.navigate("Cart");
+          }}
+        >
+          <Text style={styles.buttonText}>
+            {alreadyInCart ? "JÁ ESTÁ NO CARRINHO" : "GARANTIR INGRESSO"}
+          </Text>
         </Pressable>
       </View>
+      <Menu />
     </SafeAreaView>
   );
 }
@@ -130,6 +142,10 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 12,
     alignItems: "center",
+  },
+  buttonDisabled: {
+    backgroundColor: "#6d28d9",
+    opacity: 0.85,
   },
   buttonText: {
     color: "#fff",

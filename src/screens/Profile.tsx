@@ -10,6 +10,7 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "../components/Button";
+import { Menu } from "../components/Menu";
 
 export default function Profile({ navigation }: any) { 
   return (
@@ -48,6 +49,8 @@ export default function Profile({ navigation }: any) {
         />
 
         </View>
+        <Menu/>
+      
     </SafeAreaView>
   );
 }
@@ -85,6 +88,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 20,
     alignItems: "center",
+    flex: 1,
   },
 
   avatarWrap: {
