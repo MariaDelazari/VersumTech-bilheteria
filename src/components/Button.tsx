@@ -1,52 +1,51 @@
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { TouchableOpacity, Text, StyleSheet, ActivityIndicator } from "react-native";
 import { TouchableOpacityProps } from "react-native";
 
 interface ButtonProps extends TouchableOpacityProps {
   title: string;
+  loading?: boolean;
 }
 
-export function Button({ title, ...rest }:ButtonProps) {
+export function Button({ title, loading = false, disabled, ...rest }: ButtonProps) {
   return (
-    <TouchableOpacity activeOpacity={0.75} {...rest}>
-      
-      <LinearGradient
-        colors={["#C084FC", "#620faf", "#8A2BE2"]}
-        start={{ x: 1, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.button}
-      >
+    <TouchableOpacity
+      style={[
+        styles.button,
+        disabled && styles.disabled
+      ]}
+      activeOpacity={0.85}
+      disabled={disabled || loading}
+      {...rest}
+    >
+      {loading ? (
+        <ActivityIndicator color="#FFF" />
+      ) : (
         <Text style={styles.text}>{title}</Text>
-      </LinearGradient>
-
+      )}
     </TouchableOpacity>
   );
 }
 
-
 const styles = StyleSheet.create({
   button: {
+    backgroundColor: "#4F46E5", 
     width: "100%",
-    paddingVertical: 10,
-    borderRadius: 6,
+    paddingVertical: 14,
+    borderRadius: 12,
     alignItems: "center",
+    justifyContent: "center",
 
-    borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.6)",
-
-
-    backgroundColor: "rgba(255,255,255,0.2)",
-
-    shadowColor: "#C084FC",
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 4,
+ 
   },
 
   text: {
-    color: "#fff",
-    fontSize: 17,
+    color: "#FFF",
+    fontSize: 16,
     fontWeight: "700",
-    letterSpacing: 1,
+    letterSpacing: 0.9,
+  },
+
+  disabled: {
+    opacity: 0.5,
   },
 });

@@ -52,8 +52,8 @@ export function Login() {
 
         <Button
            title="Entrar"
-          onPress={() => { // função que é chamada quando o usuário pressiona o botão de entrar
-            if (!email || !senha) {// verifica se o email ou a senha estão vazios, e se estiverem, exibe um alerta para o usuário preencher todos os campos
+          onPress={() => { 
+            if (!email || !senha) {
               alert("Preencha todos os campos");
               return;
             }
@@ -71,74 +71,68 @@ export function Login() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, // faz o container ocupar toda a tela, ta dizendo: “ocupe todo o espaço disponível do container”
-    justifyContent: "center",
+    flex: 1, 
     alignItems: "center",
+    justifyContent: "center",
     
   },
 
   form: {
-    marginVertical: 38,
-    position: "absolute",
-    top: "15%",
-    bottom: "16%",
-    alignSelf: "center",
-
     width: "90%",
-    padding: 26,
+    padding: 24,
+    borderRadius: 24,
 
-    borderRadius: 20,
-
-    backgroundColor: "rgba(255,255,255,0.08)",
+    backgroundColor: "rgba(255,255,255,0.10)",
     borderWidth: 1,
-    borderColor: "rgba(255, 255, 255, 0.40)",
+    borderColor: "rgba(255,255,255,0.25)",
 
     
   },
 
   logoContainer: {
   alignItems: "center",
+  marginBottom: 5,
 
   },
 
-
   logo: {
    marginRight: 10,
-    width:215,
+    width:210,
     height: 95,
   },
   
 
 title: {
-  fontSize: 20
-,
-  color: "#FFFFFF",
+  fontSize: 22,
+  color: "#FFF",
   textAlign: "center",
-  marginBottom: 6,
-  fontWeight: "600",
-  letterSpacing: 1
+  marginBottom: 15,
+  fontWeight: "700",
+  letterSpacing: 0.5,
 },
 
   forgot: {
-    color: "#ccc",
-    marginBottom: 22,
-    marginTop: 11,
+    color: "#fff",
     fontSize: 13,
+    marginTop: 10,
+    marginBottom: 18,
+    textAlign: "right",
+    textDecorationLine: "underline",
+    fontWeight: "600",
   },
 
  
   signup: {
-    color: "#ccc",
+    color: "rgba(255,255,255,0.7)",
     textAlign: "center",
-    marginTop: 20,
+    marginTop: 18,
     fontSize: 14,
   },
 
   link: {
     color: "#fff",
-    fontWeight: "600",
-    textDecorationLine: 'underline',
-    fontSize: 14,
+    fontWeight: "700",
+    textDecorationLine: "underline",
     
   },
 });

@@ -69,14 +69,14 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: 110,
-    height: 120,
-    borderRadius: 14,
+    width: 190,
+    height: 190,
+    borderRadius: 10,
   },
 
   content: {
     flex: 1,
-    marginLeft: 28,
+    marginLeft: 12,
   },
 
   header: {
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   },
 
   localBox: {
-    marginBottom: 16,
+    marginBottom: 14,
   },
 
   label: {
@@ -134,7 +134,7 @@ divider: {
   borderBottomWidth: 1,
   borderColor: "#D1D5DB",
   borderStyle: "dashed",
-  marginVertical: 5,
+  marginVertical: 6,
 },
 
 });
