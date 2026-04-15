@@ -1,17 +1,17 @@
-import React, {Component} from "react";
-import {View } from "react-native";
+import React from "react";
+import { View } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import { Login } from "./src/screens/Login";
-import { Events } from "./src/screens/Events";
+import Profile from "./src/screens/Profile";
+import EventDetails from "./src/screens/Event";
 
-export default   function App (){
-  return(
-<View style={{ flex: 1 }} > 
-
-
- 
-  <Login />
-</View>
+export default function App() {
+  return (
+    <SafeAreaProvider>
+      <View style={{ flex: 1 }}>
+        <EventDetails/>
+      </View>
+    </SafeAreaProvider>
   );
 }
 
