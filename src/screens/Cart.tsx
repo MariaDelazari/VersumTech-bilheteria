@@ -32,14 +32,15 @@ function handleCheckout() {
 
   setTimeout(() => {
     setSuccess(false);
-  }, 2500);
+  }, 1200);
 }
 
   return (
     <SafeAreaView style={styles.container}>
  
       <View style={styles.header}>
-        <View style={styles.headerTopRow}>
+        <View style={styles.headerTopRow}>y
+
           <Pressable
             style={styles.backButton}
             onPress={() => navigation.goBack()}
