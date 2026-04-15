@@ -12,7 +12,7 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 export default function Event({ route, navigation }: any) {
-  const { event } = route.params;
+  const { event } = route.params; // dados q vieram da outra tela
 
   return (
     <SafeAreaView style={styles.container}>

@@ -5,14 +5,13 @@ import {
   StyleSheet,
   ImageBackground,
   TouchableOpacity,
-  StatusBar,
+
   FlatList,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Card } from "../components/Card";
 import { events } from "../data/events";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 
 export  function Events({
@@ -22,11 +21,8 @@ export  function Events({
     <FlatList 
       data={events}
       keyExtractor={(item) => item.id}
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={styles.listContent}
       ListHeaderComponent={ 
         <View style={styles.wrapper}>
-          <StatusBar barStyle="light-content" /> 
 
           <ImageBackground
             source={{
@@ -102,10 +98,7 @@ export  function Events({
 }
 
 const styles = StyleSheet.create({
-  listContent: {
-    paddingBottom: 24,
-    backgroundColor: "#F3F4F6",
-  },
+
   wrapper: {
     backgroundColor: "#F3F4F6",
     marginBottom: 20,
