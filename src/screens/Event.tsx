@@ -16,9 +16,7 @@ export default function EventDetails() {
       
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 100 }}
       >
-        {/* IMAGEM */}
         <Image
           source={{
             uri: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4",
@@ -45,7 +43,6 @@ export default function EventDetails() {
             <Text style={styles.infoText}>19:00 - 23:00</Text>
           </View>
 
-          {/* DESCRIÇÃO */}
           <Text style={styles.section}>Sobre o evento</Text>
 
           <Text style={styles.description}>
@@ -57,7 +54,6 @@ export default function EventDetails() {
         </View>
       </ScrollView>
 
-      {/* BOTÃO FIXO */}
       <View style={styles.footer}>
         <Pressable style={styles.button}>
           <Text style={styles.buttonText}>Participar</Text>
