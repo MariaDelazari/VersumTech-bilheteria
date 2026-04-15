@@ -5,15 +5,15 @@ import {
   Image,
   StyleSheet,
   ScrollView,
+ 
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Button } from "../components/Button";
 
-export default function Profile() {
+export default function Profile({ navigation }: any) { 
   return (
     <SafeAreaView style={styles.safe}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        
   
         <LinearGradient
           colors={["#8A2BE2", "#620faf", "#4c1d95"]}
@@ -40,12 +40,14 @@ export default function Profile() {
           <Text style={styles.meta}>Membro desde 2024</Text>
 
      
-          <View style={styles.signOut}>
-            <Text style={styles.signOutText}>Sair</Text>
-          </View>
+        <Button
+          title="Sair"
+          style={styles.signOut}
+          textStyle={styles.signOutText}
+          onPress={() => navigation.reset({ index: 0, routes: [{ name: "Login" }] })}
+        />
 
         </View>
-      </ScrollView>
     </SafeAreaView>
   );
 }

@@ -13,22 +13,20 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Card } from "../components/Card";
 import { events } from "../data/events";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../routes/AppRoutes";
 
-type Props = NativeStackScreenProps<RootStackParamList, "Events">;
 
 export  function Events({
   navigation,
-}: Props) {
-  return (
-    <FlatList
+}: any) {
+  return ( 
+    <FlatList 
       data={events}
       keyExtractor={(item) => item.id}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.listContent}
-      ListHeaderComponent={
+      ListHeaderComponent={ 
         <View style={styles.wrapper}>
-          <StatusBar barStyle="light-content" />
+          <StatusBar barStyle="light-content" /> 
 
           <ImageBackground
             source={{
@@ -46,7 +44,7 @@ export  function Events({
                 <TouchableOpacity
                   style={styles.iconButton}
                   activeOpacity={0.8}
-                  onPress={() => navigation.goBack()}
+                  onPress={() => navigation.navigate("Profile")}
                 >
                   <Ionicons name="menu" size={24} color="#fff" />
                 </TouchableOpacity>
