@@ -12,7 +12,6 @@ import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Card } from "../components/Card";
 import { events } from "../data/events";
-import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Menu } from "../components/Menu";
 import { useCart } from "../contexts/CartContext";
