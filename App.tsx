@@ -7,7 +7,7 @@ import { CartProvider } from "./src/contexts/CartContext";
 
 export default function App() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView >
       <CartProvider>
         <AppRoutes />
       </CartProvider>

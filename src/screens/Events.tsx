@@ -22,7 +22,7 @@ export  function Events({
 }: any) {
   return ( 
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f2f4f8" }}>
-    <ScrollView  showsVerticalScrollIndicator={false}>
+    
     <FlatList 
       data={events}
       keyExtractor={(item) => item.id}
@@ -102,7 +102,7 @@ export  function Events({
         
       )}
     />
-      </ScrollView>
+      
        <Menu />
     </SafeAreaView>
   );

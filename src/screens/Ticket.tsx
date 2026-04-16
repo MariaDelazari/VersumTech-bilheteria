@@ -25,7 +25,7 @@ export  function Ticket({
   const { itemsCart } = useCart();
   return ( 
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f2f4f8" }}>
-    <ScrollView  showsVerticalScrollIndicator={false}>
+    
     <FlatList 
       data={itemsCart}
       keyExtractor={(item) => item.id}
@@ -86,7 +86,7 @@ export  function Ticket({
         
       )}
     />
-      </ScrollView>
+      
        <Menu />
     </SafeAreaView>
   );

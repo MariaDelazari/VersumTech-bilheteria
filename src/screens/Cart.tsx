@@ -39,7 +39,7 @@ function handleCheckout() {
     <SafeAreaView style={styles.container}>
  
       <View style={styles.header}>
-        <View style={styles.headerTopRow}>y
+        <View style={styles.headerTopRow}>
 
           <Pressable
             style={styles.backButton}
@@ -56,12 +56,13 @@ function handleCheckout() {
           {items.length} {items.length === 1 ? "item" : "itens"}
         </Text>
       </View>
+      
 
   
       <ScrollView
-        showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 140 }}
       >
+
         {items.length === 0 ? (
           <View style={styles.empty}>
             <Ionicons name="cart-outline" size={48} color="#9CA3AF" />
@@ -105,6 +106,7 @@ function handleCheckout() {
           ))
         )}
       </ScrollView>
+
 
       <View style={styles.footer}>
         <View style={styles.totalRow}>
@@ -291,7 +293,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
-  /* ✅ SUCCESS OVERLAY */
   successOverlay: {
     position: "absolute",
     top: 0,

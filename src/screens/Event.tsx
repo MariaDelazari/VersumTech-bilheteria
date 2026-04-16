@@ -4,12 +4,10 @@ import {
   Text,
   Image,
   StyleSheet,
-  ScrollView,
   Pressable,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useCart } from "../contexts/CartContext";
 import { Menu } from "../components/Menu";
 
@@ -21,8 +19,11 @@ export default function Event({ route, navigation }: any) {
   const alreadyInCart = hasItem(event.id);
 
   return (
+
+
+
     <SafeAreaView style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      
         <Image source={{ uri: event.image }} style={styles.image} />
 
         <View style={styles.content}>
@@ -59,7 +60,7 @@ export default function Event({ route, navigation }: any) {
 
           <Text style={styles.description}>{event.description}</Text>
         </View>
-      </ScrollView>
+     
 
       <View style={styles.footer}>
         <Pressable
@@ -76,6 +77,9 @@ export default function Event({ route, navigation }: any) {
       </View>
       <Menu />
     </SafeAreaView>
+
+
+
   );
 }
 
